@@ -36,7 +36,7 @@ app.get('/usuario', verificaToken, (req, res) => {
 
 });
 
-app.post('/usuario', [verificaToken, verificaAdmin_Role], function(req, res) {
+app.post('/usuario', [verificaToken, verificaAdmin_Role], (req, res) => {
     let body = req.body;
 
     let usuario = new Usuario({
@@ -64,7 +64,7 @@ app.post('/usuario', [verificaToken, verificaAdmin_Role], function(req, res) {
 
 });
 
-app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) {
+app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], (req, res) => {
     let id = req.params.id;
     let body = _.pick(req.body, ["nombre", "email", "img", "roole", "estado"]);
 
@@ -84,7 +84,7 @@ app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) 
 
 });
 
-app.delete('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) {
+app.delete('/usuario/:id', [verificaToken, verificaAdmin_Role], (req, res) => {
     let id = req.params.id;
     //Usuario.findByIdAndRemove(id, (err, usuarioB) => {
 
